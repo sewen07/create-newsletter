@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Faction Monthly Newsletter - Torn</title>
+</head>
+<body style="background-color: #141414; color: #eaeaea; font-family: Arial, sans-serif; margin: 0; padding: 15px;">
+
+  <!-- Admin Control Bar -->
+  <div id="adminBar" style="max-width: 560px; margin: 0 auto 15px auto; background: #252525; border: 1px solid #444; padding: 10px 14px; border-radius: 6px; display: flex; flex-wrap: wrap; gap: 6px; justify-content: space-between; align-items: center;">
+    <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+      <button id="toggleEditBtn" onclick="toggleEdit()" style="background: #333; color: #fff; border: 1px solid #555; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">Edit Newsletter</button>
+      <button onclick="saveDraft()" style="background: #333; color: #fff; border: 1px solid #555; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">Save</button>
+      <button onclick="copyForTorn()" style="background: #3b82f6; color: #fff; border: 1px solid #3b82f6; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold;">Copy Code for Torn</button>
+    </div>
+    <button onclick="resetTemplate()" style="background: #6b1d1d; color: #fff; border: 1px solid #b82929; padding: 6px 8px; border-radius: 4px; cursor: pointer; font-size: 12px;">Reset</button>
+  </div>
+
+  <!-- Torn-Compatible Responsive Wrapper -->
+  <div id="exportWrapper">
+    <div id="newsletter" style="max-width: 560px; width: 100%; margin: 0 auto; background-color: #1f1f1f; border: 1px solid #383838; border-radius: 8px; font-family: Arial, sans-serif; color: #eaeaea; box-sizing: border-box; overflow: hidden;">
+      
+      <!-- HEADER -->
+      <div style="background-color: #261414; border-bottom: 2px solid #b82929; padding: 20px 16px; text-align: center;">
+        <div class="editable" style="display: inline-block; background-color: #b82929; color: #ffffff; font-size: 10px; font-weight: bold; padding: 3px 8px; border-radius: 3px; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px;">FACTION NAME [TAG]</div>
+        <h1 class="editable" style="font-size: 19px; color: #ffffff; margin: 0 auto 4px auto; font-weight: bold; line-height: 1.2; text-align: center;">Monthly Dispatch — November 2026</h1>
+        <div class="editable" style="color: #b8b8b8; font-size: 12px; text-align: center;">Issued by Leadership • Stay active, stack hard, and watch your hosp timers.</div>
+      </div>
+
+      <!-- MAIN SECTIONS CONTAINER -->
+      <div style="padding: 14px;" id="sectionsContainer">
+        
+        <!-- 1. XANAX WINNERS SECTION -->
+        <div style="background-color: #181818; border: 1px solid #383838; border-radius: 6px; padding: 14px; margin-bottom: 14px;" data-type="podium">
+          <div style="border-bottom: 1px solid #383838; padding-bottom: 6px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+            <h2 class="editable" style="font-size: 14px; color: #ffffff; margin: 0;">[XANAX] Competition Winners</h2>
+            <button class="edit-ctrl" onclick="this.closest('div[data-type]').remove()" style="display:none; background:#b82929; color:#fff; border:none; padding:2px 6px; border-radius:3px; cursor:pointer; font-size:11px;">Delete Section</button>
+          </div>
+          <div class="editable" style="font-size: 12px; color: #b8b8b8; margin-bottom: 10px;">Shoutout to our top stackers from last month! Prizes have been sent to your balances.</div>
+          
+          <div class="winners-grid" style="display: flex; flex-wrap: wrap; gap: 8px;">
+            
+            <!-- 1st Place Card -->
+            <div class="winner-card" style="flex: 1 1 140px; background: linear-gradient(180deg, #272318 0%, #1e1e1e 100%); border: 1px solid #594a1e; border-top: 3px solid #d4af37; border-radius: 5px; padding: 10px; box-sizing: border-box;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 4px;">
+                <span class="editable" style="font-size: 10px; text-transform: uppercase; color: #d4af37; font-weight: bold; letter-spacing: 0.5px;">1st Place</span>
+                <button class="edit-ctrl" onclick="this.closest('.winner-card').remove()" style="display:none; background:#b82929; color:#fff; border:none; padding:0 4px; border-radius:2px; cursor:pointer; font-size:10px;">x</button>
+              </div>
+              <div class="editable" style="font-size: 12px; font-weight: bold; color: #ffffff; margin: 4px 0 3px 0;">PlayerOne [123456]</div>
+              <div class="editable" style="color: #4ade80; font-weight: bold; font-size: 12px; margin-bottom: 6px;">88 Xanax</div>
+              <div class="editable" style="font-size: 11px; color: #e6c65c; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.2); padding: 2px 6px; border-radius: 3px; display: inline-block;">Prize: 3x FHC</div>
+            </div>
+
+            <!-- 2nd Place Card -->
+            <div class="winner-card" style="flex: 1 1 140px; background: linear-gradient(180deg, #252525 0%, #1e1e1e 100%); border: 1px solid #4a4a4a; border-top: 3px solid #c0c0c0; border-radius: 5px; padding: 10px; box-sizing: border-box;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 4px;">
+                <span class="editable" style="font-size: 10px; text-transform: uppercase; color: #c0c0c0; font-weight: bold; letter-spacing: 0.5px;">2nd Place</span>
+                <button class="edit-ctrl" onclick="this.closest('.winner-card').remove()" style="display:none; background:#b82929; color:#fff; border:none; padding:0 4px; border-radius:2px; cursor:pointer; font-size:10px;">x</button>
+              </div>
+              <div class="editable" style="font-size: 12px; font-weight: bold; color: #ffffff; margin: 4px 0 3px 0;">PlayerTwo [234567]</div>
+              <div class="editable" style="color: #4ade80; font-weight: bold; font-size: 12px; margin-bottom: 6px;">82 Xanax</div>
+              <div class="editable" style="font-size: 11px; color: #e6c65c; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.2); padding: 2px 6px; border-radius: 3px; display: inline-block;">Prize: $25M</div>
+            </div>
+
+            <!-- 3rd Place Card -->
+            <div class="winner-card" style="flex: 1 1 140px; background: linear-gradient(180deg, #261f1a 0%, #1e1e1e 100%); border: 1px solid #593b26; border-top: 3px solid #cd7f32; border-radius: 5px; padding: 10px; box-sizing: border-box;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 4px;">
+                <span class="editable" style="font-size: 10px; text-transform: uppercase; color: #cd7f32; font-weight: bold; letter-spacing: 0.5px;">3rd Place</span>
+                <button class="edit-ctrl" onclick="this.closest('.winner-card').remove()" style="display:none; background:#b82929; color:#fff; border:none; padding:0 4px; border-radius:2px; cursor:pointer; font-size:10px;">x</button>
+              </div>
+              <div class="editable" style="font-size: 12px; font-weight: bold; color: #ffffff; margin: 4px 0 3px 0;">PlayerThree [345678]</div>
+              <div class="editable" style="color: #4ade80; font-weight: bold; font-size: 12px; margin-bottom: 6px;">79 Xanax</div>
+              <div class="editable" style="font-size: 11px; color: #e6c65c; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.2); padding: 2px 6px; border-radius: 3px; display: inline-block;">Prize: 10x Xanax</div>
+            </div>
+
+          </div>
+
+          <div class="edit-ctrl" style="display:none; margin-top: 8px;">
+            <button onclick="addWinner(this)" style="background: rgba(74, 158, 56, 0.2); color: #7ce368; border: 1px dashed #4a9e38; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px;">+ Add Winner</button>
+          </div>
+        </div>
+
+        <!-- 2. WAR & CHAIN SCHEDULE SECTION -->
+        <div style="background-color: #181818; border: 1px solid #383838; border-radius: 6px; padding: 14px; margin-bottom: 14px;" data-type="table">
+          <div style="border-bottom: 1px solid #383838; padding-bottom: 6px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+            <h2 class="editable" style="font-size: 14px; color: #ffffff; margin: 0;">[+] Upcoming War & Chain Schedule</h2>
+            <button class="edit-ctrl" onclick="this.closest('div[data-type]').remove()" style="display:none; background:#b82929; color:#fff; border:none; padding:2px 6px; border-radius:3px; cursor:pointer; font-size:11px;">Delete Section</button>
+          </div>
+          
+          <div class="schedule-list" style="display: flex; flex-direction: column; gap: 8px;">
+            
+            <!-- Row 1 -->
+            <div class="sched-row" style="background-color: #222222; border: 1px solid #303030; border-radius: 5px; padding: 8px 10px; display: flex; align-items: center; gap: 10px; position: relative;">
+              <div class="editable" style="min-width: 72px; background-color: #2c2c2c; border: 1px solid #3d3d3d; border-radius: 4px; padding: 6px 4px; text-align: center; font-weight: bold; color: #ffffff; font-size: 10px; line-height: 1.2;">NOV 27<br>– 30</div>
+              <div>
+                <span class="editable badge-tag" data-color="red" style="display: inline-block; background-color: #3b1818; color: #ff8585; border: 1px solid #b82929; padding: 3px 6px; border-radius: 4px; font-weight: bold; font-size: 10px;">Ranked War</span>
+              </div>
+              <div class="editable" style="flex: 1; font-size: 12px; color: #eaeaea; line-height: 1.3;">Matchmaking Thu 12:00 TCT. Stack to 1000e prior to start.</div>
+              <div class="edit-ctrl" style="display:none; position: absolute; top: 6px; right: 6px;">
+                <button onclick="cycleBadgeColor(this)" title="Change Badge Color" style="background:#444; color:#fff; border:none; padding:1px 4px; border-radius:2px; cursor:pointer; font-size:9px;">Color</button>
+                <button onclick="this.closest('.sched-row').remove()" style="background:#b82929; color:#fff; border:none; padding:1px 4px; border-radius:2px; cursor:pointer; font-size:9px;">x</button>
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="sched-row" style="background-color: #222222; border: 1px solid #303030; border-radius: 5px; padding: 8px 10px; display: flex; align-items: center; gap: 10px; position: relative;">
+              <div class="editable" style="min-width: 72px; background-color: #2c2c2c; border: 1px solid #3d3d3d; border-radius: 4px; padding: 6px 4px; text-align: center; font-weight: bold; color: #ffffff; font-size: 10px; line-height: 1.2;">DEC 12<br>– 13</div>
+              <div>
+                <span class="editable badge-tag" data-color="yellow" style="display: inline-block; background-color: #382e14; color: #facc15; border: 1px solid #d4af37; padding: 3px 6px; border-radius: 4px; font-weight: bold; font-size: 10px;">2,500 Chain</span>
+              </div>
+              <div class="editable" style="flex: 1; font-size: 12px; color: #eaeaea; line-height: 1.3;">Starts Sat 18:00 TCT. Minimum 50 hits per member.</div>
+              <div class="edit-ctrl" style="display:none; position: absolute; top: 6px; right: 6px;">
+                <button onclick="cycleBadgeColor(this)" title="Change Badge Color" style="background:#444; color:#fff; border:none; padding:1px 4px; border-radius:2px; cursor:pointer; font-size:9px;">Color</button>
+                <button onclick="this.closest('.sched-row').remove()" style="background:#b82929; color:#fff; border:none; padding:1px 4px; border-radius:2px; cursor:pointer; font-size:9px;">x</button>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="edit-ctrl" style="display:none; margin-top: 8px;">
+            <button onclick="addRow(this)" style="background: rgba(74, 158, 56, 0.2); color: #7ce368; border: 1px dashed #4a9e38; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px;">+ Add Row</button>
+          </div>
+        </div>
+
+        <!-- 3. IMPORTANT EVENTS SECTION -->
+        <div style="background-color: #181818; border: 1px solid #383838; border-radius: 6px; padding: 14px; margin-bottom: 14px;" data-type="events">
+          <div style="border-bottom: 1px solid #383838; padding-bottom: 6px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+            <h2 class="editable" style="font-size: 14px; color: #ffffff; margin: 0;">[i] Important Events to Know</h2>
+            <button class="edit-ctrl" onclick="this.closest('div[data-type]').remove()" style="display:none; background:#b82929; color:#fff; border:none; padding:2px 6px; border-radius:3px; cursor:pointer; font-size:11px;">Delete Section</button>
+          </div>
+          
+          <div class="events-list">
+            <div class="event-row" style="background-color: #222222; border: 1px solid #303030; border-radius: 5px; padding: 8px 10px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px;">
+              <div class="editable" style="min-width: 72px; background-color: #2c2c2c; border: 1px solid #3d3d3d; border-radius: 4px; padding: 6px 4px; text-align: center; font-weight: bold; color: #ffffff; font-size: 11px;">NOV 25<br>10:00 TCT</div>
+              <div style="flex: 1;">
+                <div class="editable" style="font-size: 12px; font-weight: bold; color: #ffffff; margin-bottom: 2px;">World Diabetes Day</div>
+                <div class="editable" style="font-size: 11px; color: #b8b8b8;">Candy effects are boosted. Great time to do Happy Jumps!</div>
+              </div>
+              <button class="edit-ctrl" onclick="this.closest('.event-row').remove()" style="display:none; background:#b82929; color:#fff; border:none; padding:2px 6px; border-radius:2px; cursor:pointer; font-size:11px;">x</button>
+            </div>
+          </div>
+          <div class="edit-ctrl" style="display:none; margin-top: 6px;">
+            <button onclick="addEvent(this)" style="background: rgba(74, 158, 56, 0.2); color: #7ce368; border: 1px dashed #4a9e38; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px;">+ Add Event</button>
+          </div>
+        </div>
+
+        <!-- 4. FACTION UPDATES SECTION -->
+        <div style="background-color: #181818; border: 1px solid #383838; border-radius: 6px; padding: 14px;" data-type="list">
+          <div style="border-bottom: 1px solid #383838; padding-bottom: 6px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+            <h2 class="editable" style="font-size: 14px; color: #ffffff; margin: 0;">[v] Faction Updates & Reminders</h2>
+            <button class="edit-ctrl" onclick="this.closest('div[data-type]').remove()" style="display:none; background:#b82929; color:#fff; border:none; padding:2px 6px; border-radius:3px; cursor:pointer; font-size:11px;">Delete Section</button>
+          </div>
+          
+          <div class="bullets-list">
+            <div class="bullet-row" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; font-size: 12px; color: #eaeaea;">
+              <span style="color: #b82929; font-weight: bold;">-</span>
+              <span class="editable" style="flex: 1;"><strong>Armory Access:</strong> Return temporary weapons and armor immediately after chaining or warring.</span>
+              <button class="edit-ctrl" onclick="this.closest('.bullet-row').remove()" style="display:none; background:#b82929; color:#fff; border:none; padding:1px 5px; border-radius:2px; cursor:pointer; font-size:10px;">x</button>
+            </div>
+            <div class="bullet-row" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; font-size: 12px; color: #eaeaea;">
+              <span style="color: #b82929; font-weight: bold;">-</span>
+              <span class="editable" style="flex: 1;"><strong>OC 2.0:</strong> Keep your crime pass rates updated and stay slotted into an active scenario.</span>
+              <button class="edit-ctrl" onclick="this.closest('.bullet-row').remove()" style="display:none; background:#b82929; color:#fff; border:none; padding:1px 5px; border-radius:2px; cursor:pointer; font-size:10px;">x</button>
+            </div>
+          </div>
+          <div class="edit-ctrl" style="display:none; margin-top: 6px;">
+            <button onclick="addBullet(this)" style="background: rgba(74, 158, 56, 0.2); color: #7ce368; border: 1px dashed #4a9e38; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px;">+ Add Bullet</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ADD NEW SECTION BAR (EDIT MODE ONLY) -->
+      <div class="edit-ctrl" style="display:none; padding: 0 14px 14px 14px;">
+        <div style="background: #181818; border: 1px dashed #555; padding: 10px; border-radius: 6px; text-align: center;">
+          <div style="font-size: 11px; color: #b8b8b8; margin-bottom: 6px;">+ Add a New Category / Section:</div>
+          <button onclick="addSection('list')" style="background: #262626; color: #7ce368; border: 1px solid #4a9e38; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px; margin: 2px;">+ Bullet List</button>
+          <button onclick="addSection('podium')" style="background: #262626; color: #7ce368; border: 1px solid #4a9e38; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px; margin: 2px;">+ Winner Cards</button>
+          <button onclick="addSection('table')" style="background: #262626; color: #7ce368; border: 1px solid #4a9e38; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px; margin: 2px;">+ Schedule Row</button>
+          <button onclick="addSection('events')" style="background: #262626; color: #7ce368; border: 1px solid #4a9e38; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px; margin: 2px;">+ Events List</button>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div style="background-color: #262626; padding: 10px 16px; text-align: center; font-size: 11px; color: #b8b8b8; border-top: 1px solid #383838;">
+        <span class="editable">Questions? Message Leadership in-game or ping @Officers on Discord.</span>
+      </div>
+
+    </div>
+  </div>
+
+<script>
+  let isEditing = false;
+  const toggleBtn = document.getElementById('toggleEditBtn');
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const saved = localStorage.getItem('tornNewsletterCenteredHeader_v16');
+    if (saved) document.getElementById('exportWrapper').innerHTML = saved;
+  });
+
+  function toggleEdit() {
+    isEditing = !isEditing;
+    document.querySelectorAll('.editable').forEach(el => {
+      el.contentEditable = isEditing;
+      el.style.outline = isEditing ? '1px dashed #3b82f6' : 'none';
+    });
+
+    document.querySelectorAll('.edit-ctrl').forEach(el => {
+      if (!isEditing) {
+        el.style.display = 'none';
+      } else {
+        if (el.tagName === 'BUTTON') el.style.display = 'inline-block';
+        else el.style.display = 'block';
+      }
+    });
+
+    toggleBtn.textContent = isEditing ? 'Done Editing' : 'Edit Newsletter';
+    toggleBtn.style.background = isEditing ? '#4a9e38' : '#333';
+  }
+
+  function saveDraft() {
+    if (isEditing) toggleEdit();
+    localStorage.setItem('tornNewsletterCenteredHeader_v16', document.getElementById('exportWrapper').innerHTML);
+    alert('Saved! Your layout and edits are saved in your browser.');
+  }
+
+  function resetTemplate() {
+    if (confirm('Reset back to the original template?')) {
+      localStorage.removeItem('tornNewsletterCenteredHeader_v16');
+      location.reload();
+    }
+  }
+
+  function cycleBadgeColor(btn) {
+    const badge = btn.closest('.sched-row').querySelector('.badge-tag');
+    const current = badge.getAttribute('data-color') || 'red';
+    if (current === 'red') {
+      badge.setAttribute('data-color', 'yellow');
+      badge.style.backgroundColor = '#382e14';
+      badge.style.color = '#facc15';
+      badge.style.borderColor = '#d4af37';
+    } else if (current === 'yellow') {
+      badge.setAttribute('data-color', 'green');
+      badge.style.backgroundColor = '#163314';
+      badge.style.color = '#4ade80';
+      badge.style.borderColor = '#4a9e38';
+    } else {
+      badge.setAttribute('data-color', 'red');
+      badge.style.backgroundColor = '#3b1818';
+      badge.style.color = '#ff8585';
+      badge.style.borderColor = '#b82929';
+    }
+  }
+
+  function addWinner(btn) {
+    const grid = btn.closest('div[data-type]').querySelector('.winners-grid');
+    const card = document.createElement('div');
+    card.className = 'winner-card';
+    card.style.cssText = 'flex: 1 1 140px; background: linear-gradient(180deg, #1b2432 0%, #1e1e1e 100%); border: 1px solid #2c4366; border-top: 3px solid #3b82f6; border-radius: 5px; padding: 10px; box-sizing: border-box;';
+    card.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 4px;">
+        <span class="editable" contenteditable="true" style="font-size: 10px; text-transform: uppercase; color: #60a5fa; font-weight: bold; letter-spacing: 0.5px; outline: 1px dashed #3b82f6;">Runner Up</span>
+        <button class="edit-ctrl" onclick="this.closest('.winner-card').remove()" style="display:inline-block; background:#b82929; color:#fff; border:none; padding:0 4px; border-radius:2px; cursor:pointer; font-size:10px;">x</button>
+      </div>
+      <div class="editable" contenteditable="true" style="font-size: 12px; font-weight: bold; color: #ffffff; margin: 4px 0 3px 0; outline: 1px dashed #3b82f6;">Player [000000]</div>
+      <div class="editable" contenteditable="true" style="color: #4ade80; font-weight: bold; font-size: 12px; margin-bottom: 6px; outline: 1px dashed #3b82f6;">70 Xanax</div>
+      <div class="editable" contenteditable="true" style="font-size: 11px; color: #e6c65c; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.2); padding: 2px 6px; border-radius: 3px; display: inline-block; outline: 1px dashed #3b82f6;">Prize: 5x Xanax</div>
+    `;
+    grid.appendChild(card);
+  }
+
+  function addRow(btn) {
+    const list = btn.closest('div[data-type]').querySelector('.schedule-list');
+    const row = document.createElement('div');
+    row.className = 'sched-row';
+    row.style.cssText = 'background-color: #222222; border: 1px solid #303030; border-radius: 5px; padding: 8px 10px; display: flex; align-items: center; gap: 10px; position: relative;';
+    row.innerHTML = `
+      <div class="editable" contenteditable="true" style="min-width: 72px; background-color: #2c2c2c; border: 1px solid #3d3d3d; border-radius: 4px; padding: 6px 4px; text-align: center; font-weight: bold; color: #ffffff; font-size: 10px; line-height: 1.2; outline: 1px dashed #3b82f6;">DATE<br>TBA</div>
+      <div>
+        <span class="editable badge-tag" data-color="yellow" contenteditable="true" style="display: inline-block; background-color: #382e14; color: #facc15; border: 1px solid #d4af37; padding: 3px 6px; border-radius: 4px; font-weight: bold; font-size: 10px; outline: 1px dashed #3b82f6;">Chain</span>
+      </div>
+      <div class="editable" contenteditable="true" style="flex: 1; font-size: 12px; color: #eaeaea; line-height: 1.3; outline: 1px dashed #3b82f6;">Details here...</div>
+      <div class="edit-ctrl" style="display:block; position: absolute; top: 6px; right: 6px;">
+        <button onclick="cycleBadgeColor(this)" title="Change Badge Color" style="background:#444; color:#fff; border:none; padding:1px 4px; border-radius:2px; cursor:pointer; font-size:9px;">Color</button>
+        <button onclick="this.closest('.sched-row').remove()" style="background:#b82929; color:#fff; border:none; padding:1px 4px; border-radius:2px; cursor:pointer; font-size:9px;">x</button>
+      </div>
+    `;
+    list.appendChild(row);
+  }
+
+  function addEvent(btn) {
+    const list = btn.closest('div[data-type]').querySelector('.events-list');
+    const div = document.createElement('div');
+    div.className = 'event-row';
+    div.style.cssText = 'background-color: #222222; border: 1px solid #303030; border-radius: 5px; padding: 8px 10px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px;';
+    div.innerHTML = `
+      <div class="editable" contenteditable="true" style="min-width: 72px; background-color: #2c2c2c; border: 1px solid #3d3d3d; border-radius: 4px; padding: 6px 4px; text-align: center; font-weight: bold; color: #ffffff; font-size: 11px; outline: 1px dashed #3b82f6;">DATE<br>TCT</div>
+      <div style="flex: 1;">
+        <div class="editable" contenteditable="true" style="font-size: 12px; font-weight: bold; color: #ffffff; margin-bottom: 2px; outline: 1px dashed #3b82f6;">New Event Title</div>
+        <div class="editable" contenteditable="true" style="font-size: 11px; color: #b8b8b8; outline: 1px dashed #3b82f6;">Description goes here...</div>
+      </div>
+      <button class="edit-ctrl" onclick="this.closest('.event-row').remove()" style="display:inline-block; background:#b82929; color:#fff; border:none; padding:2px 6px; border-radius:2px; cursor:pointer; font-size:11px;">x</button>
+    `;
+    list.appendChild(div);
+  }
+
+  function addBullet(btn) {
+    const list = btn.closest('div[data-type]').querySelector('.bullets-list');
+    const div = document.createElement('div');
+    div.className = 'bullet-row';
+    div.style.cssText = 'display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; font-size: 12px; color: #eaeaea;';
+    div.innerHTML = `
+      <span style="color: #b82929; font-weight: bold;">-</span>
+      <span class="editable" contenteditable="true" style="flex: 1; outline: 1px dashed #3b82f6;"><strong>Topic:</strong> Enter new update here.</span>
+      <button class="edit-ctrl" onclick="this.closest('.bullet-row').remove()" style="display:inline-block; background:#b82929; color:#fff; border:none; padding:1px 5px; border-radius:2px; cursor:pointer; font-size:10px;">x</button>
+    `;
+    list.appendChild(div);
+  }
+
+  function addSection(type) {
+    const container = document.getElementById('sectionsContainer');
+    const sec = document.createElement('div');
+    sec.style.cssText = 'background-color: #181818; border: 1px solid #383838; border-radius: 6px; padding: 14px; margin-bottom: 14px;';
+    sec.setAttribute('data-type', type);
+
+    let bodyHTML = '';
+    if (type === 'list') {
+      bodyHTML = `
+        <div class="bullets-list">
+          <div class="bullet-row" style="display: flex; align-items: flex-start; gap: 8px; margin-bottom: 6px; font-size: 12px; color: #eaeaea;">
+            <span style="color: #b82929; font-weight: bold;">-</span>
+            <span class="editable" contenteditable="true" style="flex: 1; outline: 1px dashed #3b82f6;"><strong>Topic:</strong> Enter details here.</span>
+            <button class="edit-ctrl" onclick="this.closest('.bullet-row').remove()" style="display:inline-block; background:#b82929; color:#fff; border:none; padding:1px 5px; border-radius:2px; cursor:pointer; font-size:10px;">x</button>
+          </div>
+        </div>
+        <div class="edit-ctrl" style="display:block; margin-top: 6px;"><button onclick="addBullet(this)" style="background: rgba(74, 158, 56, 0.2); color: #7ce368; border: 1px dashed #4a9e38; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px;">+ Add Bullet</button></div>
+      `;
+    } else if (type === 'podium') {
+      bodyHTML = `
+        <div class="winners-grid" style="display: flex; flex-wrap: wrap; gap: 8px;"></div>
+        <div class="edit-ctrl" style="display:block; margin-top: 8px;"><button onclick="addWinner(this)" style="background: rgba(74, 158, 56, 0.2); color: #7ce368; border: 1px dashed #4a9e38; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px;">+ Add Winner</button></div>
+      `;
+    } else if (type === 'table') {
+      bodyHTML = `
+        <div class="schedule-list" style="display: flex; flex-direction: column; gap: 8px;"></div>
+        <div class="edit-ctrl" style="display:block; margin-top: 8px;"><button onclick="addRow(this)" style="background: rgba(74, 158, 56, 0.2); color: #7ce368; border: 1px dashed #4a9e38; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px;">+ Add Row</button></div>
+      `;
+    } else if (type === 'events') {
+      bodyHTML = `
+        <div class="events-list"></div>
+        <div class="edit-ctrl" style="display:block; margin-top: 6px;"><button onclick="addEvent(this)" style="background: rgba(74, 158, 56, 0.2); color: #7ce368; border: 1px dashed #4a9e38; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px;">+ Add Event</button></div>
+      `;
+    }
+
+    sec.innerHTML = `
+      <div style="border-bottom: 1px solid #383838; padding-bottom: 6px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+        <h2 class="editable" contenteditable="true" style="font-size: 14px; color: #ffffff; margin: 0; outline: 1px dashed #3b82f6;">New Section Title</h2>
+        <button class="edit-ctrl" onclick="this.closest('div[data-type]').remove()" style="display:inline-block; background:#b82929; color:#fff; border:none; padding:2px 6px; border-radius:3px; cursor:pointer; font-size:11px;">Delete Section</button>
+      </div>
+      ${bodyHTML}
+    `;
+    container.appendChild(sec);
+  }
+
+  function copyForTorn() {
+    if (isEditing) toggleEdit();
+    
+    const clone = document.getElementById('newsletter').cloneNode(true);
+    clone.querySelectorAll('.edit-ctrl').forEach(el => el.remove());
+    clone.querySelectorAll('.editable').forEach(el => {
+      el.removeAttribute('contenteditable');
+      el.style.outline = 'none';
+    });
+
+    navigator.clipboard.writeText(clone.outerHTML).then(() => {
+      alert('Copied centered header Torn HTML!\n\nPaste it directly into the Source Code (< >) view in Torn Mail or Newsletter.');
+    });
+  }
+</script>
+</body>
+</html>
