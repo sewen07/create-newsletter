@@ -87,29 +87,35 @@
             <button class="edit-ctrl" onclick="this.closest('div[data-type]').remove()" style="display:none; background:#b82929; color:#fff; border:none; padding:2px 6px; border-radius:3px; cursor:pointer; font-size:11px;">Delete Section</button>
           </div>
           
-          <div class="schedule-list" style="display: flex; flex-direction: column; gap: 8px;">
+          <div class="schedule-list">
             
             <!-- Row 1 -->
-            <div class="sched-row" style="background-color: #222222; border: 1px solid #303030; border-radius: 5px; padding: 8px 10px; display: flex; align-items: center; gap: 10px; position: relative;">
-              <div class="editable" style="min-width: 72px; background-color: #2c2c2c; border: 1px solid #3d3d3d; border-radius: 4px; padding: 6px 4px; text-align: center; font-weight: bold; color: #ffffff; font-size: 10px; line-height: 1.2;">NOV 27<br>– 30</div>
-              <div>
-                <span class="editable badge-tag" data-color="red" style="display: inline-block; background-color: #3b1818; color: #ff8585; border: 1px solid #b82929; padding: 3px 6px; border-radius: 4px; font-weight: bold; font-size: 10px;">Ranked War</span>
+            <div class="sched-row" style="background-color: #222222; border: 1px solid #303030; border-radius: 5px; padding: 8px 10px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; position: relative;">
+              <div class="editable date-box" data-bg="neutral" style="min-width: 72px; background-color: #2c2c2c; border: 1px solid #3d3d3d; border-radius: 4px; padding: 6px 4px; text-align: center; font-weight: bold; color: #ffffff; font-size: 11px; line-height: 1.2;">NOV 27<br>– 30</div>
+              <div style="flex: 1;">
+                <div style="margin-bottom: 3px;">
+                  <span class="editable badge-tag" data-color="red" style="display: inline-block; background-color: #3b1818; color: #ff8585; border: 1px solid #b82929; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 10px;">Ranked War</span>
+                </div>
+                <div class="editable" style="font-size: 12px; color: #eaeaea; line-height: 1.3;">Matchmaking Thu 12:00 TCT. Stack to 1000e prior to start.</div>
               </div>
-              <div class="editable" style="flex: 1; font-size: 12px; color: #eaeaea; line-height: 1.3;">Matchmaking Thu 12:00 TCT. Stack to 1000e prior to start.</div>
-              <div class="edit-ctrl" style="display:none; position: absolute; top: 6px; right: 6px;">
+              <div class="edit-ctrl" style="display:none; position: absolute; top: 6px; right: 6px; display: flex; gap: 4px;">
+                <button onclick="cycleDateBg(this)" title="Change Date Background" style="background:#444; color:#fff; border:none; padding:1px 4px; border-radius:2px; cursor:pointer; font-size:9px;">Date BG</button>
                 <button onclick="cycleBadgeColor(this)" title="Change Badge Color" style="background:#444; color:#fff; border:none; padding:1px 4px; border-radius:2px; cursor:pointer; font-size:9px;">Color</button>
                 <button onclick="this.closest('.sched-row').remove()" style="background:#b82929; color:#fff; border:none; padding:1px 4px; border-radius:2px; cursor:pointer; font-size:9px;">x</button>
               </div>
             </div>
 
             <!-- Row 2 -->
-            <div class="sched-row" style="background-color: #222222; border: 1px solid #303030; border-radius: 5px; padding: 8px 10px; display: flex; align-items: center; gap: 10px; position: relative;">
-              <div class="editable" style="min-width: 72px; background-color: #2c2c2c; border: 1px solid #3d3d3d; border-radius: 4px; padding: 6px 4px; text-align: center; font-weight: bold; color: #ffffff; font-size: 10px; line-height: 1.2;">DEC 12<br>– 13</div>
-              <div>
-                <span class="editable badge-tag" data-color="yellow" style="display: inline-block; background-color: #382e14; color: #facc15; border: 1px solid #d4af37; padding: 3px 6px; border-radius: 4px; font-weight: bold; font-size: 10px;">2,500 Chain</span>
+            <div class="sched-row" style="background-color: #222222; border: 1px solid #303030; border-radius: 5px; padding: 8px 10px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; position: relative;">
+              <div class="editable date-box" data-bg="neutral" style="min-width: 72px; background-color: #2c2c2c; border: 1px solid #3d3d3d; border-radius: 4px; padding: 6px 4px; text-align: center; font-weight: bold; color: #ffffff; font-size: 11px; line-height: 1.2;">DEC 12<br>– 13</div>
+              <div style="flex: 1;">
+                <div style="margin-bottom: 3px;">
+                  <span class="editable badge-tag" data-color="yellow" style="display: inline-block; background-color: #382e14; color: #facc15; border: 1px solid #d4af37; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 10px;">2,500 Chain</span>
+                </div>
+                <div class="editable" style="font-size: 12px; color: #eaeaea; line-height: 1.3;">Starts Sat 18:00 TCT. Minimum 50 hits per member.</div>
               </div>
-              <div class="editable" style="flex: 1; font-size: 12px; color: #eaeaea; line-height: 1.3;">Starts Sat 18:00 TCT. Minimum 50 hits per member.</div>
-              <div class="edit-ctrl" style="display:none; position: absolute; top: 6px; right: 6px;">
+              <div class="edit-ctrl" style="display:none; position: absolute; top: 6px; right: 6px; display: flex; gap: 4px;">
+                <button onclick="cycleDateBg(this)" title="Change Date Background" style="background:#444; color:#fff; border:none; padding:1px 4px; border-radius:2px; cursor:pointer; font-size:9px;">Date BG</button>
                 <button onclick="cycleBadgeColor(this)" title="Change Badge Color" style="background:#444; color:#fff; border:none; padding:1px 4px; border-radius:2px; cursor:pointer; font-size:9px;">Color</button>
                 <button onclick="this.closest('.sched-row').remove()" style="background:#b82929; color:#fff; border:none; padding:1px 4px; border-radius:2px; cursor:pointer; font-size:9px;">x</button>
               </div>
@@ -194,7 +200,7 @@
   const toggleBtn = document.getElementById('toggleEditBtn');
 
   window.addEventListener('DOMContentLoaded', () => {
-    const saved = localStorage.getItem('tornNewsletterCenteredHeader_v16');
+    const saved = localStorage.getItem('tornNewsletterCenteredHeader_v17');
     if (saved) document.getElementById('exportWrapper').innerHTML = saved;
   });
 
@@ -220,14 +226,40 @@
 
   function saveDraft() {
     if (isEditing) toggleEdit();
-    localStorage.setItem('tornNewsletterCenteredHeader_v16', document.getElementById('exportWrapper').innerHTML);
+    localStorage.setItem('tornNewsletterCenteredHeader_v17', document.getElementById('exportWrapper').innerHTML);
     alert('Saved! Your layout and edits are saved in your browser.');
   }
 
   function resetTemplate() {
     if (confirm('Reset back to the original template?')) {
-      localStorage.removeItem('tornNewsletterCenteredHeader_v16');
+      localStorage.removeItem('tornNewsletterCenteredHeader_v17');
       location.reload();
+    }
+  }
+
+  function cycleDateBg(btn) {
+    const box = btn.closest('.sched-row').querySelector('.date-box');
+    const current = box.getAttribute('data-bg') || 'neutral';
+    if (current === 'neutral') {
+      box.setAttribute('data-bg', 'red');
+      box.style.backgroundColor = '#3b1818';
+      box.style.color = '#ff8585';
+      box.style.borderColor = '#b82929';
+    } else if (current === 'red') {
+      box.setAttribute('data-bg', 'green');
+      box.style.backgroundColor = '#163314';
+      box.style.color = '#4ade80';
+      box.style.borderColor = '#4a9e38';
+    } else if (current === 'green') {
+      box.setAttribute('data-bg', 'yellow');
+      box.style.backgroundColor = '#382e14';
+      box.style.color = '#facc15';
+      box.style.borderColor = '#d4af37';
+    } else {
+      box.setAttribute('data-bg', 'neutral');
+      box.style.backgroundColor = '#2c2c2c';
+      box.style.color = '#ffffff';
+      box.style.borderColor = '#3d3d3d';
     }
   }
 
@@ -273,14 +305,17 @@
     const list = btn.closest('div[data-type]').querySelector('.schedule-list');
     const row = document.createElement('div');
     row.className = 'sched-row';
-    row.style.cssText = 'background-color: #222222; border: 1px solid #303030; border-radius: 5px; padding: 8px 10px; display: flex; align-items: center; gap: 10px; position: relative;';
+    row.style.cssText = 'background-color: #222222; border: 1px solid #303030; border-radius: 5px; padding: 8px 10px; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; position: relative;';
     row.innerHTML = `
-      <div class="editable" contenteditable="true" style="min-width: 72px; background-color: #2c2c2c; border: 1px solid #3d3d3d; border-radius: 4px; padding: 6px 4px; text-align: center; font-weight: bold; color: #ffffff; font-size: 10px; line-height: 1.2; outline: 1px dashed #3b82f6;">DATE<br>TBA</div>
-      <div>
-        <span class="editable badge-tag" data-color="yellow" contenteditable="true" style="display: inline-block; background-color: #382e14; color: #facc15; border: 1px solid #d4af37; padding: 3px 6px; border-radius: 4px; font-weight: bold; font-size: 10px; outline: 1px dashed #3b82f6;">Chain</span>
+      <div class="editable date-box" data-bg="neutral" contenteditable="true" style="min-width: 72px; background-color: #2c2c2c; border: 1px solid #3d3d3d; border-radius: 4px; padding: 6px 4px; text-align: center; font-weight: bold; color: #ffffff; font-size: 11px; line-height: 1.2; outline: 1px dashed #3b82f6;">DATE<br>TBA</div>
+      <div style="flex: 1;">
+        <div style="margin-bottom: 3px;">
+          <span class="editable badge-tag" data-color="yellow" contenteditable="true" style="display: inline-block; background-color: #382e14; color: #facc15; border: 1px solid #d4af37; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 10px; outline: 1px dashed #3b82f6;">Chain</span>
+        </div>
+        <div class="editable" contenteditable="true" style="font-size: 12px; color: #eaeaea; line-height: 1.3; outline: 1px dashed #3b82f6;">Details here...</div>
       </div>
-      <div class="editable" contenteditable="true" style="flex: 1; font-size: 12px; color: #eaeaea; line-height: 1.3; outline: 1px dashed #3b82f6;">Details here...</div>
-      <div class="edit-ctrl" style="display:block; position: absolute; top: 6px; right: 6px;">
+      <div class="edit-ctrl" style="display:block; position: absolute; top: 6px; right: 6px; display: flex; gap: 4px;">
+        <button onclick="cycleDateBg(this)" title="Change Date Background" style="background:#444; color:#fff; border:none; padding:1px 4px; border-radius:2px; cursor:pointer; font-size:9px;">Date BG</button>
         <button onclick="cycleBadgeColor(this)" title="Change Badge Color" style="background:#444; color:#fff; border:none; padding:1px 4px; border-radius:2px; cursor:pointer; font-size:9px;">Color</button>
         <button onclick="this.closest('.sched-row').remove()" style="background:#b82929; color:#fff; border:none; padding:1px 4px; border-radius:2px; cursor:pointer; font-size:9px;">x</button>
       </div>
@@ -342,7 +377,7 @@
       `;
     } else if (type === 'table') {
       bodyHTML = `
-        <div class="schedule-list" style="display: flex; flex-direction: column; gap: 8px;"></div>
+        <div class="schedule-list" style="display: flex; flex-direction: column;"></div>
         <div class="edit-ctrl" style="display:block; margin-top: 8px;"><button onclick="addRow(this)" style="background: rgba(74, 158, 56, 0.2); color: #7ce368; border: 1px dashed #4a9e38; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 11px;">+ Add Row</button></div>
       `;
     } else if (type === 'events') {
